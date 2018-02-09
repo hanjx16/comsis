@@ -1,0 +1,10 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: empty.aux
+The style file: splncs03.bst
+Illegal, another \bibstyle command---line 351 of file empty.aux
+ : \bibstyle
+ :          {splncs03}
+I'm skipping whatever remains of this command
+Database file #1: demo.bib
+Warning--empty booktitle in Kunichika2001AutomatedQG
+Warning--empty journal in lindberg2013generating
+(There was 1 error message)
