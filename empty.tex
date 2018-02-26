@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{appendix}
-\newcommand\revised[1]{{\color{black} #1}}
+\newcommand\revised[1]{{\color{red} #1}}
 
 \bibliographystyle{splncs03}
 \usepackage{CTEX}
@@ -148,19 +148,54 @@
 		\item{\emph{rank} question\,:\, (QP $ < $ OD=number)}
 		\item{\emph{if-cause} question \,:\, ((IP$ | $ PP=reason $ << $ 由于(because of) $ | $ 因为(because)) ..(IP$ | $ PP$ | $ VP)$ |<< $ (IP$ | $ PP $ | $VP $ << $ 所以(so) $ | $ 于是(so that)))}
 		\item{\emph{relative-cause} question\,:\, ((( IP $ | $ PP=front $ << $ 虽然(though)) .IP=however )$ | $ $<<$ (IP $|$ PP=front(IP $|$ PP $|$ VP=however $<<$ 但是(but) $|$ 但(but)))) }
+		
+		\item{\emph{color} question\,:\, (QP $ < $ NP=JJ $ < $ NP) }
+		
 	\end{enumerate}
 	
 	IP, PP, and VP represent different tag of words. A dot means subsequent follow and a left shaped arrow means an immediate subtree relation. These templates guide to search possible answer phrases on the parser tree. Once a subtree matches any template, a question will be constructed.
 	\revised{
 	In order to have a better understanding of each template, we list some examples in Table.~\ref{example}.}
-	 
-
+	
+	
 	\begin{table}[!ht]
 		\centering
 		\caption{The Template Examples}
 		\setlength\tabcolsep{0.5em}
 		\label{example}
-		\begin{tabular}{|p{40pt}|p{115pt} | p{110pt} |p{50pt}|}
+		\begin{tabular}{|p{25pt}|p{155pt} | p{150pt} |}
+			\hline
+			Type& Sentence & Question \\
+			\hline
+			\emph{Who} & 刘佩英任安吉斯中国首席商务官。(Peiying Liu acts as the China chief commercial officer of Angis.) & 谁任安吉斯中国首席商务官?(Who acts as the China chief commercial officer of Angis?)\\
+			\hline
+			\emph{When} & 2017年退休人员基本养老金上调。(The basic pension of retirees will increase in 2017.) & 何时退休人员基本养老金上调？(When will the basic pension of retires increase?)  \\
+			\hline
+			\emph{Where} & 二战时日本曾在越南制造大饥荒。(Japan had created a famine in Vietnam during World War II.)& 二战时日本曾在哪里制造大饥荒?	(Where had Japan created a famine during World War II?) \\
+			\hline
+			\emph{rank}& 昆仑鸿星取关键一胜跃居东区第六位 (Kunlun Hongxing becomes the Sixth in the East by taking a key victory.)& 昆仑鸿星取关键一胜跃居东区第几位?(What is the ranking of Kunlun Hongxing in the East by taking a key victory?)\\
+			\hline
+			\emph{number}& 亚泰2000万镑交易震惊世界！(The transaction of Yatay 20 million pound shocked the world.)& 亚泰多少镑交易震惊世界？(What`s the amount of the transaction of Yatay shocked the world?) \\
+			\hline
+			\emph{if-cause}& 因为人工智能快速发展，人们的生活方式得到巨大改变。(Because of the rapid development of artificial intelligence, people`s lifestyle has been greatly changed.)&	人们的生活方式得到巨大改变，因为什么？(What makes people's lifestyle have been change greatly? )\\
+			\hline
+			\emph{relative-cause}& 春运将至，铁道部门虽然提前发售车票，但买票难的问题仍然存在。	(As Spring Festival is comming, the railway department has sold tickets in advance, but it is still difficult to buy a ticket. )&春运将至，铁道部门虽然提前发售车票，但怎么样？(As Spring Festival is comming, what`s happened when the railway department has sold tickets in advance?)\\
+			
+			\hline
+			\emph{color} & 天气红色预警发布后,学校需要停课。 (After the weather red warning is released, the schools need to be closed.) &   什么颜色天气预警发布后，学校需要停课？ (After what color whether warning is released, the shools need to be closed?) \\ 
+			\hline
+		\end{tabular}
+	\end{table}	
+	
+	
+	
+	\iffalse
+	\begin{table}[!ht]
+		\centering
+		\caption{The Template Examples}
+		\setlength\tabcolsep{0.5em}
+		\label{example}
+		\begin{tabular}{|p{25pt}|p{125pt} | p{120pt} |p{45pt}|}
 			\hline
 			Type& Sentence & Question & Answer \\
 			\hline
@@ -179,10 +214,12 @@
 			\emph{relative-cause}& 春运将至，铁道部门虽然提前发售车票，但买票难的问题仍然存在。	(As Spring Festival is comming, the railway department has sold tickets in advance, but it is still difficult to buy a ticket. )&春运将至，铁道部门虽然提前发售车票，但怎么样？(As Spring Festival is comming, what`s happened when the railway department has sold tickets in advance?)&	买票难的问题仍然存在(It is still difficult to buy a ticket )\\
 			
 			\hline
+			\emph{color} & 天气红色预警发布后,学校需要停课。 (After the weather red warning is released, the schools need to be closed.) &   什么颜色天气预警发布后，学校需要停课？ (After what color whether warning is released, the schools need to be closed?)  & 红色 (red color)\\ 
+			\hline
 		\end{tabular}
 	\end{table}
 	
-	\iffalse
+
 		For example, given the input text, ``2014年因埃博拉病毒大肆蔓延，造成多地人员伤亡，但被切断传播链后疫情得到控制。(There are many casualties because of the violent spread of Ebola in 2014. But the epidemic is under control after interrupting the chains of transmission.)", many questions are generated as shown in Table.~\ref{questions}. \revised{Besides, we present an example of each template for better understanding in Appendix.}
 		
 		
@@ -222,7 +259,7 @@
 	\subsection{Question Ranking}
 	%We propose a simple and effective method to remedy the duplicate issue. If any of output questions own the similar answer or content with another one, we remove one of them to ensure that the question includes no duplicate. 
 	
-	After the two processes above, we can obtain lots of questions, while these questions are sorted arbitrarily and the key questions do not always appear in the front rank of outputs. We build a multi-feature neural ranking model to select the top key questions. We import ten features from the generated questions and text, shown in Table.~\ref{features}, and design a multi-feature neural network model to rank them. This is an appropriate solution to the multiple features problem without manual intervention. 
+	After the two processes above, we can obtain lots of questions, while these questions are sorted arbitrarily and the key questions do not always appear in the front rank of outputs. We build a multi-feature neural ranking model to select the top key questions. We import twelve features from the generated questions and text, shown in Table.~\ref{features}, and design a multi-feature neural network model to rank them. This is an appropriate solution to the multiple features problem without manual intervention. 
 	\begin{table}[!th]
 		\centering
 		\caption{All Features to Rank}
@@ -242,6 +279,9 @@
 			$ f8 $\,:\,stopwords density in question\\	
 			$ f9 $\,:\,noun density in question\\
 			$ f10 $\,:\,verb density in question \\
+			
+			$f11$\,:\,information gain \\
+			$f12$\,:\,TF-IDF score   \\
 			\hline 
 		\end{tabular}	
 	\end{table}
@@ -252,21 +292,16 @@
 	
 	%{介绍一下各种指标为啥要被选择
 	%The ranking algorithm could certainly be improved with more useful features, as Table \ref{features}, but we do not claim that all features are initial to be selected. 
-	As shown in Table.~\ref{features}, we select ten features about generated questions and original text.
+	As shown in Table.~\ref{features}, we select twelve features about generated questions and original text.
 	Additionally, the features $f1
-	\scriptsize{\sim}f5$ are basic information of question and answer. $f6$ are the $n$-gram scores in question sequence, which provide rich contextual information. $f7$ is used to compute the keywords percentage in question. $ f8 \scriptsize{\sim}f10$ are different tags of word distribution in question, which indicate the structure of question sequence.
-	
-	
-	
-	
+	\scriptsize{\sim}f5$ are basic information of question and answer. $f6$ are the $n$-gram scores in question sequence, which provide rich contextual information. $f7$ is used to compute the keywords percentage in question. $ f8 \scriptsize{\sim}f10$ are different tags of word distribution in question, which indicate the structure of question sequence. $ f11$ is a probability data, which represents the uncertainty of sentence. $ f12$ is a numerical statistic measure that is a popular sentence-weighting scheme. 
 	
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.4\linewidth]{bp.pdf}
+		\includegraphics[width=0.6\linewidth]{bp}
 		\caption{The Description of Multi-Feature Neural Ranking Model}
 		\label{bp}
 	\end{figure}
-	
 	
 	We design a three layers neural network, as Fig.~\ref{bp}, this model is a gradient descent method designed to minimize the total error of predicted score and human rated score.
 	The input layer is all features of each question. The middle layer is a hidden layer with $K$ nodes, and the last layer is the predicted score. $f_{ij}$ is $j$th feature of $i$th question. Furthermore, the multi-feature neural model is viewed as statistical model of the under form:
@@ -281,7 +316,11 @@
 	\begin{equation}
 		e = \frac{1}{2M}\sum_{i=1}^{M}(t_i-p_i)^2
 	\end{equation}
+	
 	Where $ t_i $ is the $i$-th actual score by human rated. We use a gradient descent method to reduce $ e $. When $ e < \varepsilon$, the neural network will be constructed, which can be used to compute the score of each question. Besides, by descending these scores attached to questions, we can obtain the top questions which are more acceptable by users.
+
+		
+	
 	
 	
 	
@@ -304,7 +343,7 @@
 }
 	
 	We calculate the perplexity \cite{Popel} score of generated questions, which is used to compare probability for nature language processing. Note that the lower perplexity indicates the generated questions are more likely to human writing.
-	Besides, we also use human evaluation that is frequently adopted in recent works about question generation \cite{DBLP:journals/corr/DuSC17,Susanti2017,lindberg2013generating}. In human evaluation, all generated questions mixed together are evaluated by human, and each question is rated by two people at least. In detail, we define an evaluation criterion of question with different score values.
+	Besides, we also use human evaluation that is frequently adopted in recent works about question generation \cite{DBLP:journals/corr/DuSC17,Susanti2017,lindberg2013generating}. In human evaluation, all generated questions mixed together are evaluated by human, and each question is rated by two people. In detail, we define an evaluation criterion of question with different score values.
 	\begin{itemize}
 		\item[$\bullet$]{\emph{Good} represents the question is related to the text well without grammatical error and its score is 3.}
 		\item[$\bullet$]{\emph{Borderline} represents the question has no problem from the view of the question but the answer does not make much sense (e.g., feature, today) and its score is 2.}
@@ -316,7 +355,7 @@
 	\subsection{Experimental Results}
 	
 	
-	Table.~\ref{perplexity} shows the perplexity score of $ n $-gram in each frameworks. Unigram is $n=1$, Bigram is $ n=2$ and Trigram is $n=3$. ACQG outperforms other frameworks, whose perplexity scores are 670.35 (Unigram), 429.74 (Bigram) and 172.73 (Trigram). H\&S uses the over-generated questions and ranks them to get the output questions. The full text is used to generate questions, thereby the outputs are redundant and the scores are 841.39 (Unigram), 608.21 (Bigram) and 213.34 (Trigram). HSKS filters unmeaningful sentences in texts, which is able to generate more targeted questions. Thus the scores decrease dramatically. Referring to HSMF system, HSMF is superior to H\&S slightly. However the score of unigram is greater than H\&S. The reason is that they both construct more absurd questions and the ranking method cannot improve this issue effectively. When we improve both key sentence extracting and ranking methods, the performance of ACQG achieves best.
+	Table.~\ref{perplexity} shows the perplexity score of $ n $-gram in each frameworks. Unigram is $n=1$, Bigram is $ n=2$ and Trigram is $n=3$. ACQG outperforms other frameworks, whose perplexity scores are 654.35 (Unigram), 418.74 (Bigram) and 166.73 (Trigram). H\&S uses the over-generated questions and ranks them to get the output questions. The full text is used to generate questions, thereby the outputs are redundant and the scores are 841.39 (Unigram), 608.21 (Bigram) and 213.34 (Trigram). HSKS filters unmeaningful sentences in texts, which is able to generate more targeted questions. Thus the scores decrease dramatically. Referring to HSMF system, HSMF is superior to H\&S slightly. However the score of unigram is greater than H\&S. The reason is that they both construct more absurd questions and the ranking method cannot improve this issue effectively. When we improve both key sentence extracting and ranking methods, the performance of ACQG achieves best.
 	\begin{table}[!ht]
 		\centering
 		\caption{The Perplexity Score of $n$-gram in Different Frameworks}
@@ -327,9 +366,9 @@
 			Frameworks& Unigram & Bigram & Trigram \\
 			\hline
 			H\&S & 841.39 & 608.21 & 213.34\\
-			HSKS& 709.9 & 471.39 & 139.04 \\
-			HSMF & 873.66 & 585.27 & 207.48 \\
-			ACQG & \textbf{670.35} & \textbf{429.74} & \textbf{122.73} \\
+			HSKS & 735.42 & 464.62 & 187.25 \\
+			HSMF& 821.8 & 584.42 & 205.72 \\
+			ACQG & \textbf{654.35} & \textbf{418.74} & \textbf{166.73} \\
 			\hline
 		\end{tabular}
 	\end{table}
@@ -347,18 +386,18 @@
 			\hline
 			Frameworks  & H\&S & HSKS & HSMF & ACGQ \\
 			\hline
-			Average Score & 1.79& 2.06 & 1.91 &\textbf{2.32}\\
+			Average Score & 1.79 & 2.12 & 1.95 &\textbf{2.37}\\
 			\hline
 		\end{tabular}
 	\end{table}
 	
-	\revised{From Table.~\ref{averagescre}, we can see ACGQ has the highest score 2.32, which indicates that the generated questions are between \emph{Good} and \emph{Borderline}. The questions are more likely to be acceptable. Because of the bad input and fragile ranking method, H\&S has a poor performance, whose human evaluation score is only 1.79. 
-		For HSKS and HSMF, whose human evaluation score are 2.06 and 1.91 respectively. They both show better performance than H\&S, but perform worse than ACGQ. Thus, the results of human evaluation are consistent with the above automatic evaluation.}
+	\revised{From Table.~\ref{averagescre}, we can see ACGQ has the highest score 2.37, which indicates that the generated questions are around \emph{Good} and \emph{Borderline}. The questions are more likely to be acceptable. Because of the bad input and fragile ranking method, H\&S has a poor performance, whose human evaluation score is only 1.79. 
+	For HSKS and HSMF, whose human evaluation score are 2.12 and 1.95 respectively. They both show better performance than H\&S, but perform worse than ACGQ. Thus, the results of human evaluation are consistent with the above automatic evaluation.}
 	%For only changing the input as HSKS, the questions improve a lot. Although the perplexity of unigram score is greater than H\&S, the human elevation result shows its function. The HSMF and H\&S results are both around \emph{Bad} and \emph{Borderline}, the only ranking method could only improve a little.  
 	
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.8\linewidth]{classcore.pdf}
+		\includegraphics[width=0.7\linewidth]{score}
 		\caption{The Human Evaluation in Each Topic}
 		\label{classcore}
 	\end{figure}
@@ -371,9 +410,11 @@
 	%		\label{sa}
 	%	\end{figure}
 	
-	Fig.~\ref{classcore} shows the detailed human evaluation score distribution in each topic. We can observe that all frameworks have a low satisfaction score in the topic of House. The reason is that the collected news are almost advertisements in House, which cannot generate meaningful questions. For other topics, H\&S always shows a lower score in each topic, while ACQG always shows a higher score in each topic. For other frameworks, the results fluctuate within H\&S and ACQG. In detail, the upper scores are 2.59 (Ec), 1.84(House), 2.42 (National), 2.37 (Military), 1.88 (Woman), 2.05 (Cars), 2.51 (Sports), 2.44 (Web), 2.36 (En), 2.42 (Others) respectively. 
+	Fig.~\ref{classcore} shows the detailed human evaluation score distribution in each topic. We can observe that all frameworks have a low satisfaction score in the topic of House. The reason is that the collected news are almost advertisements in House, which cannot generate meaningful questions. For other topics, H\&S always shows a lower score in each topic, while ACQG always shows a higher score in each topic. For other frameworks, the results fluctuate within H\&S and ACQG. In detail, the upper scores are 2.62 (Ec), 1.97(House), 2.46 (National), 2.29 (Military), 1.90 (Woman), 2.11 (Cars), 2.34 (Sports), 2.36 (Web), 2.27 (En), 2.45 (Others) respectively. HSKS pays attention to the main points of text, which filters some noisy sentences from verbose text, so the generated questions almost match texts well. HSMF takes enough features into account, which makes the ranking model effective, thus the top questions are more likely acceptable. ACGQ includes both improved components, so we can see the average score of ACQG by human evaluation is the highest. Therefore, ACQG works effectively by extracting key sentences instead of full text and improving ranking method.
+	
+	
 	%	Figure \ref{sa} shows the results of the human evaluation score distribution. The cumulative distribution of score in ACGQ are: 14.76\% (score $>=$ 3),28\% (score $>=$ 2.6), 58.76\% (score $>=$ 2.2), 84.87\% (score $>=$ 1.8), 93.8\% (score $>=$ 1.4) and 100\% (score $>=$ 1).
-	HSKS pays attention to the main points of text, which filters some noisy sentences from verbose text, so the generated questions almost match texts well. HSMF takes enough features into account, which makes the ranking model effective, thus the top questions are more likely acceptable. ACGQ includes both improved components, so we can see the average score of ACQG by human evaluation is the highest. Therefore, ACQG works effectively by extracting key sentences instead of full text and improving ranking method.
+	
 	%and the percentage of questions generated outperforms in each score stage by ACQG.
 	
 	
@@ -391,7 +432,7 @@
 	
 	\revised{
 		There  still exist limitations in ACGQ. For example，the types of generated questions are limited，which is caused by the limited templates.
-		In the future work, we will design more useful templates from texts to generate more meaningful questions. We will find more useful features, such as embedding vector, information gain, to rank the generated questions. In addition, we will construct enough pairs of text and questions to train an end-to-end neural model to generate high-quality Chinese questions directly.}
+		In the future work, we will design more useful templates from texts to generate more meaningful questions. In addition, we will construct enough pairs of text and questions to train an end-to-end neural model to generate high-quality Chinese questions directly.}
 	
 	
 	\section{Acknowledgments}
