@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.6.1)  28 FEB 2018 20:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2017.6.1)  28 FEB 2018 21:16
 entering extended mode
 **empty.tex
 (empty.tex
@@ -1034,23 +1034,26 @@ File: bp.png Graphic file (type png)
  <use bp.png>
 Package pdftex.def Info: bp.png used on input line 301.
 (pdftex.def)             Requested size: 213.39783pt x 139.79684pt.
- [6] [7] [8 <./bp.png>]
-[9] [10] <score.png, id=385, 782.925pt x 438.13687pt>
+ [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+[8 <./bp.png>] [9] [10] <score.png, id=383, 782.925pt x 438.13687pt>
 File: score.png Graphic file (type png)
- <use score.png>
+
+<use score.png>
 Package pdftex.def Info: score.png used on input line 401.
 (pdftex.def)             Requested size: 248.96051pt x 139.31749pt.
  [11 <./score.png>]
-Overfull \hbox (43.22897pt too wide) in paragraph at lines 442--443
+Overfull \hbox (39.64893pt too wide) in paragraph at lines 442--443
 \OT1/ptm/m/n/10 No. 61773229), Nat-u-ral Sci-ence Foun-da-tion of Guang-dong Pr
-ovince  |\C70/rm/m/n/10/ff |\OT1/ptm/m/n/10 (rant No. 2014A030313745)|\C70/rm/
-m/n/10/ff |
+ovince (Grant No. 2014A030313745),
  []
 
 
-Overfull \hbox (12.06767pt too wide) in paragraph at lines 442--443
-\OT1/ptm/m/n/10 Basic Sci-en-tific Re-search Pro-gram of Shen-zhen City  |\C70/
-rm/m/n/10/ff |\OT1/ptm/m/n/10 (rant No. JCYJ20160331184440545),
+Overfull \hbox (10.2877pt too wide) in paragraph at lines 442--443
+\OT1/ptm/m/n/10 Ba-sic Sci-en-tific Re-search Pro-gram of Shen-zhen City (Grant
+ No. JCYJ20160331184440545),
  []
 
 
@@ -1059,9 +1062,13 @@ Overfull \hbox (20.29808pt too wide) in paragraph at lines 442--443
 -ver-sity (Grant No. JC20140001). 
  []
 
-(empty.bbl [12]
+(empty.bbl
+Underfull \vbox (badness 1231) has occurred while \output is active []
+
+ [12]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 28.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Underfull \hbox (badness 4144) in paragraph at lines 35--40
@@ -1097,10 +1104,10 @@ Package rerunfilecheck Info: File `empty.out' has not changed.
 (rerunfilecheck)             Checksum: 4CBB144DA629995625B68FB27300D0DD;733.
  ) 
 Here is how much of TeX's memory you used:
- 14804 strings out of 493698
- 247299 string characters out of 3144413
+ 14802 strings out of 493698
+ 247276 string characters out of 3144413
  313579 words of memory out of 3000000
- 17718 multiletter control sequences out of 15000+200000
+ 17716 multiletter control sequences out of 15000+200000
  44708 words of font info for 114 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  41i,12n,37p,10346b,1196s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1139,7 +1146,7 @@ e1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic
 /uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on empty.pdf (14 pages, 660949 bytes).
+Output written on empty.pdf (14 pages, 660599 bytes).
 PDF statistics:
  643 PDF objects out of 1000 (max. 8388607)
  80 named destinations out of 1000 (max. 500000)

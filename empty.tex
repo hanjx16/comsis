@@ -87,7 +87,7 @@
 	
 	Most works tackle this task with a template-based approach. Generally, they transform the input sentence into its syntactic representation, which then are used to generate an interrogative sentence. A lot of researches have focused on manually constructing question templates, and then applying them to generation questions \cite{mostow2009generating,lindberg2013generating,heilman2010good}. 
 	Mostow et. al \cite{mostow2009generating} proposed a self-questioning strategy for \revised{reading comprehension}, in this strategy, three templates are firstly built to generate questions about \emph{what,how,why}. Lindberg et al.\cite{lindberg2013generating} adopted a templated-based method, using predominately semantic information.
-	This method bases on semantic patterns, which cast a wide syntactic net and a narrow semantic net. Then they construct questions according to the parser and templates. Heilman and Smith \cite{heilman2010good} introduced an overgenerate-and-rank approach. \revised{Their framework can be viewed as a two-step process for question generation.  In the first step, it transforms the input sentence into a simpler sentence, which is transformed into a more succinct question. In the second step, the declarative sentence is transformed into sets of questions by a sequence of well-defined syntactic and lexical transformations. It identifies the answer phrases which may be targets for WH-movement and converts them into question phrases}. Yao et al. \cite{yao} and Becker et al.\cite{becker} both followed this strategy. However, this kind of approaches do not work well when the input text is verbose, and the result is rough and redundant.
+	This method bases on semantic patterns, which cast a wide syntactic net and a narrow semantic net. Then they construct questions according to the parser and templates. Heilman and Smith \cite{heilman2010good} introduced an overgenerate-and-rank approach. \revised{Their framework can be viewed as a two-step process for question generation.  In the first step, it transforms the input sentence into a simpler sentence, which is transformed into a more succinct question. In the second step, the declarative sentence is transformed into sets of questions by a sequence of well-defined syntactic and lexical transformations. It identifies the answer phrases which may be targets for WH-movement and converts them into question phrases}. Yao et al. \cite{yao} and Becker et al.\cite{becker} both followed this strategy. However, this kind of approaches does not work well when the input text is verbose, and the result is rough and redundant.
 	
 	
 	
@@ -138,7 +138,7 @@
 	When the algorithm finished, a score associates with each sentence, and it expresses the importance of sentence in text. Whether the sentence is selected or not depends on this score.
 	
 	\subsection{Question Construction}
-	In this section, we describe how to construct questions from sentence. In particular, we focus on the structure and relation between words to construct questions. we design different rule-based templates to construct targeted questions from the parser tree.
+	In this section, we describe how to construct questions from sentence. In particular, we focus on the structure and relation between words to construct questions. We design different rule-based templates to construct targeted questions from the parser tree.
 	
 	Firstly, we design 5 general templates. If an input sentence contains location, person, noun, or time finding them by Named Entity Recognition (NER) , we construct \emph{Where}, \emph{Who}, \emph{What} or \emph{When} type of question. If there is adjective around noun, we construct \emph{How} question. Then we replace a question type with the named entity to generate a question by declarative-to-interrogative. A good performance of NER is important for the type of question. To ensure the quality of tokenize and NER, we expand the annotators by getting neologisms from Wikipedia\footnote{https://en.wikipedia.org/wiki/Main\_Page} regularly.
 	
@@ -179,10 +179,10 @@
 			\hline
 			\emph{if-cause}& 因为人工智能快速发展，人们的生活方式得到巨大改变。(Because of the rapid development of artificial intelligence, people`s lifestyle has been greatly changed.)&	人们的生活方式得到巨大改变，因为什么？(What makes people's lifestyle have been change greatly? )\\
 			\hline
-			\emph{relative-cause}& 春运将至，铁道部门虽然提前发售车票，但买票难的问题仍然存在。	(As Spring Festival is comming, the railway department has sold tickets in advance, but it is still difficult to buy a ticket. )&春运将至，铁道部门虽然提前发售车票，但怎么样？(As Spring Festival is comming, what`s happened when the railway department has sold tickets in advance?)\\
+			\emph{relative-cause}& 春运将至，铁道部门虽然提前发售车票，但买票难的问题仍然存在。	(As Spring Festival is coming, the railway department has sold tickets in advance, but it is still difficult to buy a ticket. )&春运将至，铁道部门虽然提前发售车票，但怎么样？(As Spring Festival is coming, what`s happened when the railway department has sold tickets in advance?)\\
 			
 			\hline
-			\emph{color} & 天气红色预警发布后,学校需要停课。 (After the weather red warning is released, the schools need to be closed.) &   什么颜色天气预警发布后，学校需要停课？ (After what color whether warning is released, the shools need to be closed?) \\ 
+			\emph{color} & 天气红色预警发布后,学校需要停课。 (After the weather red warning is released, the schools need to be closed.) &   什么颜色天气预警发布后，学校需要停课？ (After what color whether warning is released, the schools need to be closed?) \\ 
 			\hline
 		\end{tabular}
 	\end{table}	
@@ -439,7 +439,7 @@
 	\section{Acknowledgments}
 	
 	
-	This research is supported by National Natural Science Foundation of China (Grant No. 61773229), Natural Science Foundation of Guangdong Province （(rant No. 2014A030313745)，Basic Scientific Research Program of Shenzhen City （(rant No. JCYJ20160331184440545), and Cross fund of Graduate School at Shenzhen, Tsinghua University (Grant No. JC20140001).
+	This research is supported by National Natural Science Foundation of China (Grant No. 61773229), Natural Science Foundation of Guangdong Province (Grant No. 2014A030313745), Basic Scientific Research Program of Shenzhen City (Grant No. JCYJ20160331184440545), and Cross fund of Graduate School at Shenzhen, Tsinghua University (Grant No. JC20140001).
 	
 	
 	\bibliographystyle{splncs03}
