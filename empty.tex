@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{appendix}
-\newcommand\revised[1]{{\color{red} #1}}
+\newcommand\revised[1]{{\color{black} #1}}
 
 \bibliographystyle{splncs03}
 \usepackage{CTEX}
@@ -182,7 +182,7 @@
 			\emph{relative-cause}& 春运将至，铁道部门虽然提前发售车票，但买票难的问题仍然存在。	(As Spring Festival is coming, the railway department has sold tickets in advance, but it is still difficult to buy a ticket. )&春运将至，铁道部门虽然提前发售车票，但怎么样？(As Spring Festival is coming, what`s happened when the railway department has sold tickets in advance?)\\
 			
 			\hline
-			\emph{color} & 天气红色预警发布后,学校需要停课。 (After the weather red warning is released, the schools need to be closed.) &   什么颜色天气预警发布后，学校需要停课？ (After what color whether warning is released, the schools need to be closed?) \\ 
+			\emph{color} & 天气红色预警发布后,学校需要停课。 (After the weather red warning released, classes will be suspended.) &   什么颜色天气预警发布后，学校需要停课？ (Classes will be suspended after which color warning released?) \\ 
 			\hline
 		\end{tabular}
 	\end{table}	
@@ -355,7 +355,7 @@
 	\subsection{Experimental Results}
 	
 	
-	Table.~\ref{perplexity} shows the perplexity score of $ n $-gram in each framework. Unigram is $n=1$, Bigram is $ n=2$ and Trigram is $n=3$. ACQG outperforms other frameworks, whose perplexity scores are 654.28 (Unigram), 418.46 (Bigram) and 166.53 (Trigram). H\&S uses the over-generated questions and ranks them to get the output questions. The full text is used to generate questions, thereby the outputs are redundant and the scores are 841.39 (Unigram), 608.21 (Bigram) and 213.34 (Trigram). HSKS filters unmeaning sentences in texts, which is able to generate more targeted questions. Thus the scores decrease dramatically. Referring to HSMF system, HSMF is superior to H\&S slightly. However the score of unigram is greater than H\&S. The reason is that they both construct more absurd questions and the ranking method cannot improve this issue effectively. When we improve both key sentence extracting and ranking methods, the performance of ACQG achieves best.
+	Table.~\ref{perplexity} shows the perplexity score of $ n $-gram in each framework. Unigram is $n=1$, Bigram is $ n=2$ and Trigram is $n=3$. ACQG outperforms other frameworks, whose perplexity scores are 654.28 (Unigram), 418.46 (Bigram) and 166.53 (Trigram). H\&S uses the over-generated questions and ranks them to get the output questions. The full text is used to generate questions, thereby the outputs are redundant and the scores are 841.39 (Unigram), 608.21 (Bigram) and 213.34 (Trigram). HSKS filters unmeaning sentences in texts, which is able to generate more targeted questions. Thus the scores decrease dramatically. Referring to HSMF system, HSMF is superior to H\&S slightly. However the score of unigram is greater than H\&S. The reason is that they both construct more absurd questions and the ranking method cannot improve this issue effectively. When we improve both key sentence extracting and question ranking, the performance of ACQG achieves best.
 	\begin{table}[!ht]
 		\centering
 		\caption{The Perplexity Score of $n$-gram in Different Frameworks}
@@ -411,7 +411,7 @@
 	%		\label{sa}
 	%	\end{figure}
 	
-	Fig.~\ref{classcore} shows the detailed human evaluation score distribution in each topic. We can observe that all frameworks have a low satisfaction score in the topic of House. The reason is that the collected news are almost advertisements in House, which cannot generate meaningful questions. For other topics, H\&S always shows a lower score in each topic, while ACQG always shows a higher score in each topic. For other frameworks, the results fluctuate within H\&S and ACQG. In detail, the upper scores are 2.62 (Ec), 1.97(House), 2.46 (National), 2.29 (Military), 1.90 (Woman), 2.11 (Cars), 2.34 (Sports), 2.36 (Web), 2.27 (En), 2.45 (Others) respectively. HSKS pays attention to the main points of text, which filters some noisy sentences from verbose text, so the generated questions almost match texts well. HSMF takes enough features into account, which makes the ranking model effective, thus the top questions are more likely acceptable. ACGQ includes both improved components, so we can see the average score of ACQG by human evaluation is the highest. Therefore, ACQG works effectively by extracting key sentences instead of full text and improving ranking method.
+	Fig.~\ref{classcore} shows the detailed human evaluation score distribution in each topic. We can observe that all frameworks have a low satisfaction score in the topic of House. The reason is that the collected news is almost advertisements in House, which cannot generate meaningful questions. For other topics, H\&S always shows a lower score in each topic, while ACQG always shows a higher score in each topic. For other frameworks, the results fluctuate within H\&S and ACQG. In detail, the upper scores are 2.62 (Ec), 1.97(House), 2.46 (National), 2.29 (Military), 1.90 (Woman), 2.11 (Cars), 2.34 (Sports), 2.36 (Web), 2.27 (En), 2.45 (Others) respectively. HSKS pays attention to the main points of text, which filters some noisy sentences from verbose text, so the generated questions almost match texts well. HSMF takes enough features into account, which makes the ranking model effective, thus the top questions are more likely acceptable. ACGQ includes both improved components, so we can see the average score of ACQG by human evaluation is the highest. Therefore, ACQG works effectively by extracting key sentences instead of full text and improving ranking method.
 	
 	
 	%	Figure \ref{sa} shows the results of the human evaluation score distribution. The cumulative distribution of score in ACGQ are: 14.76\% (score $>=$ 3),28\% (score $>=$ 2.6), 58.76\% (score $>=$ 2.2), 84.87\% (score $>=$ 1.8), 93.8\% (score $>=$ 1.4) and 100\% (score $>=$ 1).
